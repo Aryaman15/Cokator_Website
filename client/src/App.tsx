@@ -13,7 +13,7 @@ import ScrollProgress from './components/shared/ScrollProgress';
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 text-slate-900">
       <ScrollProgress />
       <Header />
       <main className="pt-20">

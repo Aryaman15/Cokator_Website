@@ -29,8 +29,21 @@ a {
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .animate-spin-slow {
   animation: spin-slow 14s linear infinite;
+}
+
+.marquee-track {
+  animation: marquee 22s linear infinite;
 }
 
 [data-paused='true'] .marquee-track {
