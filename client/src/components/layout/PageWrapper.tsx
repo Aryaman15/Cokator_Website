@@ -8,7 +8,7 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [pathname]);
 
-  return <div className="mx-auto max-w-6xl px-4">{children}</div>;
+  return <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">{children}</div>;
 };
 
 export default PageWrapper;
