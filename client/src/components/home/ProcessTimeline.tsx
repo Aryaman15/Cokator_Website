@@ -183,15 +183,15 @@ const ProcessTimeline = () => {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">How we work</p>
-          <h3 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">A simple, collaborative path to delivery</h3>
-          <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
+          <h3 className="mt-3 text-3xl font-bold text-primary dark:text-white sm:text-4xl">A simple, collaborative path to delivery</h3>
+          <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg">
             From discovery through launch, we keep each stage transparent, collaborative, and measurable so you always know
             how your project is progressing.
           </p>
         </div>
 
-        <div className="relative rounded-3xl bg-white/70 p-6 shadow-card ring-1 ring-slate-100 backdrop-blur-sm sm:p-10">
-          <div className="absolute left-6 top-0 bottom-0 w-[3px] -translate-x-1/2 rounded-full bg-slate-200 md:left-1/2">
+        <div className="relative rounded-3xl bg-white/75 p-6 shadow-card ring-1 ring-slate-100 backdrop-blur-sm transition dark:bg-slate-900/80 dark:ring-slate-800 sm:p-10">
+          <div className="absolute left-6 top-0 bottom-0 w-[3px] -translate-x-1/2 rounded-full bg-slate-200 dark:bg-slate-700 md:left-1/2">
             <motion.div
               className="absolute left-0 top-0 w-full rounded-full bg-accent"
               initial={{ height: `${progressHeight}%` }}

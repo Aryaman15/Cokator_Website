@@ -7,8 +7,18 @@
   background-color: #f8fafc;
 }
 
+:root.dark {
+  color: #e2e8f0;
+  background-color: #0f172a;
+}
+
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: transparent;
+}
+
+body.dark {
+  color-scheme: dark;
 }
 
 a {
