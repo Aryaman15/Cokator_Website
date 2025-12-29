@@ -22,7 +22,11 @@ const Portfolio = () => {
           <button
             key={filter}
             onClick={() => setActiveFilter(filter)}
-            className={`rounded-full border px-4 py-2 text-sm ${filter === activeFilter ? 'border-accent bg-accent text-white' : 'border-slate-200 bg-white text-slate-700'}`}
+            className={`rounded-full border px-4 py-2 text-sm ${
+              filter === activeFilter
+                ? 'border-accent bg-accent text-white'
+                : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200'
+            }`}
           >
             {filter}
           </button>
@@ -33,15 +37,15 @@ const Portfolio = () => {
           <Card key={item.id} className="p-0">
             <img src={item.thumbnail} alt={item.title} className="h-40 w-full rounded-t-2xl object-cover" />
             <div className="space-y-2 p-4">
-              <h4 className="text-lg font-semibold text-primary">{item.title}</h4>
-              <p className="text-xs text-slate-600">{item.domain} · {item.client}</p>
-              <p className="text-xs text-slate-600">{item.services.join(', ')}</p>
+              <h4 className="text-lg font-semibold text-primary dark:text-white">{item.title}</h4>
+              <p className="text-xs text-slate-600 dark:text-slate-300">{item.domain} · {item.client}</p>
+              <p className="text-xs text-slate-600 dark:text-slate-300">{item.services.join(', ')}</p>
               <Button onClick={() => setSelected(item)} className="w-full text-center">View Sample</Button>
             </div>
           </Card>
         ))}
       </div>
-      <p className="text-sm text-slate-600">Due to confidentiality and NDAs, only curated samples are displayed. Additional samples can be shared on request.</p>
+      <p className="text-sm text-slate-600 dark:text-slate-300">Due to confidentiality and NDAs, only curated samples are displayed. Additional samples can be shared on request.</p>
       <PdfModal item={selected} open={!!selected} onClose={() => setSelected(null)} />
     </div>
   );

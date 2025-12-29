@@ -27,7 +27,7 @@ a {
 }
 
 .input {
-  @apply w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-800 shadow-inner focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent;
+  @apply w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-800 shadow-inner focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder-slate-400;
 }
 
 @keyframes spin-slow {
