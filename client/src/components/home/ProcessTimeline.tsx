@@ -2,9 +2,11 @@ import { motion, useInView } from 'framer-motion';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { howWeWorkSteps } from '../../data/howWeWorkSteps';
 
-const fadeVariants = (isEven: boolean) => ({
-  initial: { opacity: 0, y: 40, x: isEven ? 30 : -30 },
-  animate: { opacity: 1, y: 0, x: 0 },
+const fadeVariants = (isEven: boolean, isMobile: boolean) => ({
+  initial: isMobile
+    ? { opacity: 0, y: 36, scale: 0.97 }
+    : { opacity: 0, y: 40, x: isEven ? 30 : -30 },
+  animate: { opacity: 1, y: 0, x: 0, scale: 1 },
 });
 
 const stepIllustrations = [
@@ -72,6 +74,7 @@ type StepItemProps = {
   illustration: ReactNode;
   activeIndex: number;
   onActive: (index: number) => void;
+  isMobile: boolean;
 };
 
 const StepItem = ({
@@ -82,6 +85,7 @@ const StepItem = ({
   illustration,
   activeIndex,
   onActive,
+  isMobile,
 }: StepItemProps) => {
   const isEven = index % 2 === 1;
   const ref = useRef<HTMLDivElement | null>(null);
@@ -104,7 +108,7 @@ const StepItem = ({
         className={`order-1 flex justify-center ${isEven ? 'md:order-2 md:justify-start' : 'md:order-1 md:justify-end'}`}
       >
         <motion.div
-          variants={fadeVariants(!isEven)}
+          variants={fadeVariants(!isEven, isMobile)}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.3 }}
@@ -124,7 +128,7 @@ const StepItem = ({
 
       <div className={`order-2 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
         <motion.div
-          variants={fadeVariants(isEven)}
+          variants={fadeVariants(isEven, isMobile)}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.3 }}
@@ -166,8 +170,16 @@ const StepItem = ({
 
 const ProcessTimeline = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const totalSteps = howWeWorkSteps.length;
   const progressHeight = ((activeStep + 1) / totalSteps) * 100;
+
+  useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
 
   return (
     <section className="relative py-12 sm:py-16">
@@ -202,6 +214,7 @@ const ProcessTimeline = () => {
                 illustration={stepIllustrations[index]}
                 activeIndex={activeStep}
                 onActive={setActiveStep}
+                isMobile={isMobile}
               />
             ))}
           </div>
