@@ -2,9 +2,14 @@ import { motion, useInView } from 'framer-motion';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { howWeWorkSteps } from '../../data/howWeWorkSteps';
 
-const fadeVariants = (isEven: boolean) => ({
-  initial: { opacity: 0, y: 40, x: isEven ? 30 : -30 },
-  animate: { opacity: 1, y: 0, x: 0 },
+const fadeVariants = (isEven: boolean, isMobile: boolean) => ({
+  initial: {
+    opacity: 0,
+    y: 28,
+    x: isMobile ? 0 : isEven ? 14 : -14,
+    scale: 0.94,
+  },
+  animate: { opacity: 1, y: 0, x: 0, scale: 1 },
 });
 
 const stepIllustrations = [
@@ -72,6 +77,7 @@ type StepItemProps = {
   illustration: ReactNode;
   activeIndex: number;
   onActive: (index: number) => void;
+  isMobile: boolean;
 };
 
 const StepItem = ({
@@ -82,6 +88,7 @@ const StepItem = ({
   illustration,
   activeIndex,
   onActive,
+  isMobile,
 }: StepItemProps) => {
   const isEven = index % 2 === 1;
   const ref = useRef<HTMLDivElement | null>(null);
@@ -98,13 +105,13 @@ const StepItem = ({
   return (
     <div
       ref={ref}
-      className="relative grid grid-cols-1 items-center gap-6 pl-14 md:grid-cols-2 md:gap-12 md:pl-0"
+      className="relative grid grid-cols-1 items-center gap-6 pl-16 md:grid-cols-2 md:gap-12 md:pl-0"
     >
       <div
         className={`order-1 flex justify-center ${isEven ? 'md:order-2 md:justify-start' : 'md:order-1 md:justify-end'}`}
       >
         <motion.div
-          variants={fadeVariants(!isEven)}
+          variants={fadeVariants(!isEven, isMobile)}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.3 }}
@@ -124,7 +131,7 @@ const StepItem = ({
 
       <div className={`order-2 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
         <motion.div
-          variants={fadeVariants(isEven)}
+          variants={fadeVariants(isEven, isMobile)}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.3 }}
@@ -134,14 +141,8 @@ const StepItem = ({
           }`}
         >
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/0 via-white/40 to-white/0 opacity-0 transition duration-300 group-hover:opacity-100" />
-          <div className="relative flex items-center gap-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
-            <span
-              className={`flex h-10 w-10 items-center justify-center rounded-full border text-sm transition duration-300 ${
-                isActive ? 'border-accent bg-accent text-white shadow shadow-accent/20' : 'border-slate-200 bg-white text-primary'
-              }`}
-            >
-              {String(index + 1).padStart(2, '0')}
-            </span>
+          <div className="relative flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+            <span className="sr-only">Step {index + 1}</span>
             <span className={`${isActive ? 'text-accent' : 'text-slate-500'}`}>How we work</span>
           </div>
           <h4 className="relative mt-3 text-lg font-semibold text-primary sm:text-xl">{title}</h4>
@@ -149,9 +150,9 @@ const StepItem = ({
         </motion.div>
       </div>
 
-      <div className="absolute left-6 top-1/2 h-12 w-12 -translate-y-1/2 md:left-1/2 md:-translate-x-1/2">
+      <div className="absolute left-4 top-1/2 h-10 w-10 -translate-y-1/2 md:left-1/2 md:h-12 md:w-12 md:-translate-x-1/2">
         <div
-          className={`flex h-12 w-12 items-center justify-center rounded-full border-2 text-sm font-semibold transition duration-300 ${
+          className={`flex h-10 w-10 items-center justify-center rounded-full border-2 text-sm font-semibold transition duration-300 md:h-12 md:w-12 ${
             isActive
               ? 'border-accent bg-accent text-white shadow-lg shadow-accent/30'
               : 'border-slate-200 bg-white text-primary'
@@ -166,8 +167,16 @@ const StepItem = ({
 
 const ProcessTimeline = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const totalSteps = howWeWorkSteps.length;
   const progressHeight = ((activeStep + 1) / totalSteps) * 100;
+
+  useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
 
   return (
     <section className="relative py-12 sm:py-16">
@@ -202,6 +211,7 @@ const ProcessTimeline = () => {
                 illustration={stepIllustrations[index]}
                 activeIndex={activeStep}
                 onActive={setActiveStep}
+                isMobile={isMobile}
               />
             ))}
           </div>
