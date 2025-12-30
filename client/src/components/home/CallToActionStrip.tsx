@@ -7,7 +7,11 @@ const CallToActionStrip = () => (
         <h3 className="text-2xl font-semibold">Have a book or digital publishing project in mind?</h3>
         <p className="text-sm text-white/80">Talk to our team for a tailored production plan.</p>
       </div>
-      <Button to="/contact" variant="secondary" className="bg-white text-primary hover:bg-slate-100">
+      <Button
+        to="/contact"
+        variant="secondary"
+        className="border-white/60 bg-white/10 text-white hover:border-white hover:bg-white/20 hover:text-white"
+      >
         Talk to Our Team
       </Button>
     </div>

@@ -43,7 +43,10 @@ const ApplicationForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 rounded-2xl bg-white p-6 shadow-card">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 rounded-2xl bg-white p-6 shadow-card ring-1 ring-slate-100 backdrop-blur-sm dark:bg-slate-900/80 dark:ring-slate-800"
+    >
       <div className="grid gap-4 md:grid-cols-2">
         <input className="input" placeholder="Name*" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
         <input className="input" placeholder="Email*" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required />
@@ -63,7 +66,7 @@ const ApplicationForm = () => {
         <textarea className="input md:col-span-2" rows={4} placeholder="Message / Additional notes" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
       </div>
       <Button type="submit">Submit Application</Button>
-      {status && <p className="text-sm text-slate-700">{status}</p>}
+      {status && <p className="text-sm text-slate-700 dark:text-slate-200">{status}</p>}
     </form>
   );
 };

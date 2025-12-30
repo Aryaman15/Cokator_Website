@@ -1,25 +1,42 @@
 import { motion } from 'framer-motion';
+import Button from '../shared/Button';
 
-const markers = [
-  { label: 'India – Production & Project Management', position: 'top-1/3 left-1/3' },
-  { label: 'US & Canada – Client Liaison', position: 'top-1/2 right-1/4' },
+const reassurance = [
+  'Dedicated production teams in India and North America',
+  '24–48 hr response with a tailored plan',
+  'NDAs and secure file handling on request',
 ];
 
 const GlobePanel = () => (
   <motion.div
-    className="relative flex h-full items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/80 p-8 text-white shadow-card"
-    initial={{ opacity: 0, scale: 0.95 }}
-    whileInView={{ opacity: 1, scale: 1 }}
+    className="relative flex h-full flex-col justify-between gap-4 rounded-2xl bg-gradient-to-br from-primary to-slate-900 p-8 text-white shadow-card ring-1 ring-white/5"
+    initial={{ opacity: 0, scale: 0.96, y: 12 }}
+    whileInView={{ opacity: 1, scale: 1, y: 0 }}
     viewport={{ once: true }}
   >
-    <div className="relative h-72 w-72 overflow-hidden rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.2),transparent),radial-gradient(circle_at_70%_60%,rgba(255,255,255,0.15),transparent)]">
-      <div className="absolute inset-0 animate-spin-slow bg-[conic-gradient(from_45deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]" aria-hidden />
-      {markers.map((marker) => (
-        <div key={marker.label} className={`absolute ${marker.position}`}>
-          <div className="h-3 w-3 rounded-full bg-accent shadow" title={marker.label} />
-          <div className="mt-2 max-w-[120px] text-xs text-white/80">{marker.label}</div>
-        </div>
+    <div>
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">Why contact us</p>
+      <h3 className="mt-2 text-xl font-semibold">You’ll get a confident, actionable response</h3>
+      <p className="mt-2 text-sm text-white/80">Share your brief and we’ll propose timelines, team mix, and deliverables.</p>
+    </div>
+    <ul className="space-y-2 text-sm text-white/85">
+      {reassurance.map((item) => (
+        <li key={item} className="flex items-start gap-2">
+          <span className="mt-1 h-2 w-2 rounded-full bg-accent" aria-hidden />
+          <span>{item}</span>
+        </li>
       ))}
+    </ul>
+    <div className="mt-4 flex flex-col gap-2 rounded-2xl bg-white/10 p-4 text-sm text-white/90">
+      <div className="font-semibold">Direct contacts</div>
+      <div className="flex flex-wrap gap-3 text-white/80">
+        <span>India: +91-9999343638</span>
+        <span>US & Canada: +1-647-799-4812</span>
+        <span>info@cokrator.com</span>
+      </div>
+      <Button to="/services" variant="secondary" className="self-start border-white/60 bg-white/10 text-white hover:border-white hover:bg-white/20 hover:text-white">
+        Explore capabilities
+      </Button>
     </div>
   </motion.div>
 );
