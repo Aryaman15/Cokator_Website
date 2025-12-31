@@ -17,24 +17,28 @@ const Domains = () => {
             <button
               key={domain.title}
               onClick={() => setActive(domain)}
-              className={`rounded-xl border px-4 py-3 text-left text-sm font-semibold ${domain.title === active.title ? 'border-accent bg-accent/10 text-primary' : 'border-slate-200 bg-white text-slate-700'}`}
+              className={`rounded-xl border px-4 py-3 text-left text-sm font-semibold ${
+                domain.title === active.title
+                  ? 'border-accent bg-accent/10 text-primary dark:border-accent/70 dark:bg-accent/15 dark:text-white'
+                  : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200'
+              }`}
             >
               {domain.title}
             </button>
           ))}
         </div>
         <Card>
-          <h3 className="text-xl font-semibold text-primary">{active.title}</h3>
-          <p className="mt-2 text-sm text-slate-700">{active.description}</p>
-          <ul className="mt-4 flex flex-wrap gap-2 text-xs text-slate-600">
+          <h3 className="text-xl font-semibold text-primary dark:text-white">{active.title}</h3>
+          <p className="mt-2 text-sm text-slate-700 dark:text-slate-200">{active.description}</p>
+          <ul className="mt-4 flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-300">
             {active.examples.map((ex) => (
-              <li key={ex} className="rounded-full bg-slate-100 px-3 py-1">{ex}</li>
+              <li key={ex} className="rounded-full bg-slate-100 px-3 py-1 dark:bg-slate-800/80">{ex}</li>
             ))}
           </ul>
           <div className="mt-4 grid gap-3 md:grid-cols-3">
             {samples.map((sample) => (
-              <div key={sample.id} className="rounded-lg bg-slate-50 p-3 text-xs text-slate-700">
-                <p className="font-semibold text-primary">{sample.title}</p>
+              <div key={sample.id} className="rounded-lg bg-slate-50 p-3 text-xs text-slate-700 dark:bg-slate-800/70 dark:text-slate-200">
+                <p className="font-semibold text-primary dark:text-white">{sample.title}</p>
                 <p>{sample.client}</p>
               </div>
             ))}

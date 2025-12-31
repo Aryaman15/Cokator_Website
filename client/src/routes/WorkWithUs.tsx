@@ -25,24 +25,24 @@ const WorkWithUs = () => (
     <div className="grid gap-4 md:grid-cols-2">
       {roles.map((role) => (
         <Card key={role.title}>
-          <h4 className="text-lg font-semibold text-primary">{role.title}</h4>
-          <p className="mt-2 text-sm text-slate-700">{role.desc}</p>
+          <h4 className="text-lg font-semibold text-primary dark:text-white">{role.title}</h4>
+          <p className="mt-2 text-sm text-slate-700 dark:text-slate-200">{role.desc}</p>
         </Card>
       ))}
     </div>
     <Card>
-      <h4 className="text-lg font-semibold text-primary">Why Work With Us</h4>
-      <ul className="mt-3 grid gap-2 text-sm text-slate-700 md:grid-cols-2">
+      <h4 className="text-lg font-semibold text-primary dark:text-white">Why Work With Us</h4>
+      <ul className="mt-3 grid gap-2 text-sm text-slate-700 dark:text-slate-200 md:grid-cols-2">
         {reasons.map((reason) => (
           <li key={reason}>• {reason}</li>
         ))}
       </ul>
     </Card>
     <Card>
-      <h4 className="text-lg font-semibold text-primary">Collaboration Process</h4>
+      <h4 className="text-lg font-semibold text-primary dark:text-white">Collaboration Process</h4>
       <div className="mt-3 flex flex-wrap gap-4">
         {steps.map((step, idx) => (
-          <div key={step} className="rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-700">
+          <div key={step} className="rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-700 dark:bg-slate-800 dark:text-slate-200">
             {idx + 1}. {step}
           </div>
         ))}

@@ -12,12 +12,12 @@ const HeroSection = () => {
     <section className="flex flex-col items-center gap-10 py-16 lg:flex-row">
       <div className="space-y-6 lg:w-1/2">
         <p className="text-xs uppercase tracking-[0.3em] text-accent">Publishing partner</p>
-        <h1 className="text-3xl font-bold leading-tight text-primary md:text-4xl">
+        <h1 className="text-3xl font-bold leading-tight text-primary dark:text-white md:text-4xl">
           Digital Content & Book Production
           <br />
           for Global Publishers & eLearning Companies
         </h1>
-        <p className="text-base text-slate-700 md:text-lg">
+        <p className="text-base text-slate-700 dark:text-slate-200 md:text-lg">
           CoKrator provides composition, illustrations, eBook delivery, and editorial services across engineering, medical,
           math, business, and education programs with rigorous quality control.
         </p>

@@ -2,21 +2,21 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="mt-16 border-t border-slate-200 bg-white">
+    <footer className="mt-16 border-t border-slate-200/70 bg-white/90 backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/70">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 md:flex-row md:justify-between">
         <div className="max-w-md space-y-3">
-          <h3 className="text-xl font-semibold text-primary">CoKrator Content Solutions</h3>
-          <p className="text-sm text-slate-600">
+          <h3 className="text-xl font-semibold text-primary dark:text-white">CoKrator Content Solutions</h3>
+          <p className="text-sm text-slate-600 dark:text-slate-300">
             Reliable partner for book publishing, digital content production, editorial services, and art development for
             global publishers and learning companies.
           </p>
-          <p className="text-sm text-slate-700">Email: info@cokrator.com</p>
-          <p className="text-sm text-slate-700">India: +91-9999343638</p>
-          <p className="text-sm text-slate-700">US & Canada: +1-647-799-4812</p>
+          <p className="text-sm text-slate-700 dark:text-slate-200">Email: info@cokrator.com</p>
+          <p className="text-sm text-slate-700 dark:text-slate-200">India: +91-9999343638</p>
+          <p className="text-sm text-slate-700 dark:text-slate-200">US & Canada: +1-647-799-4812</p>
         </div>
-        <div className="grid grid-cols-2 gap-4 text-sm text-slate-700 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-4 text-sm text-slate-700 dark:text-slate-200 sm:grid-cols-3">
           <div className="space-y-2">
-            <h4 className="font-semibold text-primary">Navigate</h4>
+            <h4 className="font-semibold text-primary dark:text-white">Navigate</h4>
             <div className="flex flex-col gap-1">
               <Link to="/">Home</Link>
               <Link to="/services">Services</Link>
@@ -25,7 +25,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="space-y-2">
-            <h4 className="font-semibold text-primary">Company</h4>
+            <h4 className="font-semibold text-primary dark:text-white">Company</h4>
             <div className="flex flex-col gap-1">
               <Link to="/about">About</Link>
               <Link to="/work-with-us">Work With CoKrator</Link>
@@ -33,13 +33,15 @@ const Footer = () => {
             </div>
           </div>
           <div className="space-y-2">
-            <h4 className="font-semibold text-primary">Regions</h4>
+            <h4 className="font-semibold text-primary dark:text-white">Regions</h4>
             <p>India Operations</p>
             <p>US & Canada Client Liaison</p>
           </div>
         </div>
       </div>
-      <div className="border-t border-slate-200 py-4 text-center text-xs text-slate-500">© {new Date().getFullYear()} CoKrator Content Solutions Pvt. Ltd.</div>
+      <div className="border-t border-slate-200/70 py-4 text-center text-xs text-slate-500 dark:border-slate-800/80 dark:text-slate-400">
+        © {new Date().getFullYear()} CoKrator Content Solutions Pvt. Ltd.
+      </div>
     </footer>
   );
 };

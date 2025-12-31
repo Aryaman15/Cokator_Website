@@ -10,8 +10,8 @@ const WhatWeDoFlipGrid = () => {
           <motion.div key={service.id} whileHover={{ rotateY: 8, scale: 1.02 }} className="[transform-style:preserve-3d]">
             <Card className="h-full">
               <div className="mb-3 text-xs font-semibold uppercase tracking-wide text-accent">{service.title}</div>
-              <p className="text-sm text-slate-700">{service.shortDescription}</p>
-              <ul className="mt-3 space-y-1 text-xs text-slate-600">
+              <p className="text-sm text-slate-700 dark:text-slate-200">{service.shortDescription}</p>
+              <ul className="mt-3 space-y-1 text-xs text-slate-600 dark:text-slate-300">
                 {service.bullets.slice(0, 3).map((b) => (
                   <li key={b}>• {b}</li>
                 ))}
