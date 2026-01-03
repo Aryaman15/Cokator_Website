@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-
+import cengagelogo from "../../../public/assets/companylogo/cengage.png"
+import nbtindia from "../../../public/assets/companylogo/nbtindia.jpg"
+import spi from "../../../public/assets/companylogo/spi.jpg"
+import macmillan from "../../../public/assets/companylogo/macmillian.png"
 type Client = {
   id: 'cengage' | 'nbt' | 'spi' | 'macmillan';
   name: string;
@@ -18,7 +21,7 @@ const clients: Client[] = [
     segment: 'Higher Ed · Global',
     description:
       'Cengage Group partners with CoKrator on higher-education and professional titles, especially in STEM and business. Our teams handle complex layouts, figures and digital deliverables aligned with their global quality standards.',
-    logoSrc: '/logos/cengage.svg', // TODO: replace with your real path
+    logoSrc: cengagelogo, // TODO: replace with your real path
   },
   {
     id: 'nbt',
@@ -27,7 +30,7 @@ const clients: Client[] = [
     segment: 'K–12 & General · India',
     description:
       'For NBT India, CoKrator supports school and general-interest titles with clear layouts, multilingual handling and typographic consistency for large print runs.',
-    logoSrc: '/logos/nbt-india.svg', // or dummy logo
+    logoSrc: nbtindia, // or dummy logo
   },
   {
     id: 'spi',
@@ -36,7 +39,7 @@ const clients: Client[] = [
     segment: 'Academic & Professional',
     description:
       'SPI Global engages CoKrator as a specialist production partner for academic and professional content, where accuracy, schedule discipline and smooth handoffs into their workflows are critical.',
-    logoSrc: '/logos/spi.svg',
+    logoSrc: spi,
   },
   {
     id: 'macmillan',
@@ -45,7 +48,7 @@ const clients: Client[] = [
     segment: 'School & Higher-Ed',
     description:
       'With Macmillan, CoKrator delivers structured layouts and illustration-heavy titles, ensuring both print-ready files and digital formats meet design and accessibility expectations.',
-    logoSrc: '/logos/macmillan.svg',
+    logoSrc: macmillan,
   },
 ];
 

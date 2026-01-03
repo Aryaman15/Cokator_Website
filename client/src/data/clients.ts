@@ -1,4 +1,8 @@
 import { ClientLogo } from '../types';
+import cengagelogo from "../../public/assets/companylogo/cengage.png"
+import nbtindia from "../../public/assets/companylogo/nbtindia.jpg"
+import spi from "../../public/assets/companylogo/spi.jpg"
+import macmillan from "../../public/assets/companylogo/macmillian.png"
 
 export const clients: ClientLogo[] = [
   { name: 'Cengage Group', logo: 'https://dummyimage.com/120x50/0f172a/ffffff&text=Cengage', tagline: 'Higher education STEM titles' },

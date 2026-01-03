@@ -1,7 +1,9 @@
 import { PortfolioItem } from '../types';
 
-const placeholder = 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=60';
-const samplePdf = 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
+import placeholder from "../../public/assets/pdfThumbnail/Brochure_page-0001.jpg"
+import samplePdf from "../../public/assets/pdf/Complete_Portfolio.pdf"
+// const placeholder = 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=60';
+// const samplePdf = 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
 
 export const portfolio: PortfolioItem[] = [
   { id: 'k12-math', title: 'Grade 6 Mathematics Workbook', client: 'NBT India', domain: 'K–12 / School', services: ['Composition', 'Illustrations'], thumbnail: placeholder, pages: [], pdfUrl: samplePdf },
