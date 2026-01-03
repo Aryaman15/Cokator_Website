@@ -5,8 +5,8 @@ type Props = {
 
 const SectionHeading = ({ title, subtitle }: Props) => (
   <div className="mb-8 space-y-2 text-center">
-    <h2 className="text-2xl font-bold text-primary md:text-3xl">{title}</h2>
-    {subtitle && <p className="text-sm text-slate-600 md:text-base">{subtitle}</p>}
+    <h2 className="text-2xl font-bold text-primary dark:text-white md:text-3xl">{title}</h2>
+    {subtitle && <p className="text-sm text-slate-600 dark:text-slate-300 md:text-base">{subtitle}</p>}
   </div>
 );
 
