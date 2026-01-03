@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 import Button from '../shared/Button';
 
 const initialState = {
@@ -24,7 +26,7 @@ const ContactForm = () => {
       return;
     }
     try {
-      await axios.post('/api/contact', form);
+      await axios.post(`${API_BASE}/api/contact`, form);
       setStatus('Thank you! We will reach out shortly.');
       setForm(initialState);
     } catch (error) {
