@@ -1,8 +1,23 @@
+import { useState } from 'react';
 import Button from '../shared/Button';
+import PdfModal from '../shared/PdfModal';
+import { PortfolioItem } from '../../types';
+
+const portfolioItem: PortfolioItem = {
+  id: 'complete-portfolio',
+  title: 'Complete Portfolio',
+  client: 'CoKrator',
+  domain: 'Digital Services',
+  services: ['Composition', 'Editorial', 'Design', 'Accessibility', 'Production'],
+  thumbnail: '/assets/pdfThumbnail/Complete_Portfolio_page-0001.jpg',
+  pages: [],
+  pdfUrl: '/assets/pdf/Complete_Portfolio.pdf',
+};
 
 const CompletePortfolioSection = () => {
-  const portfolioPdf = '/assets/pdf/Complete_Portfolio.pdf';
-  const portfolioThumbnail = '/assets/pdfThumbnail/Complete_Portfolio_page-0001.jpg';
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
 
   return (
     <section className="py-12">
@@ -15,25 +30,26 @@ const CompletePortfolioSection = () => {
             for publishing and eLearning partners. From composition and editorial to art, accessibility, and production,
             this portfolio highlights the quality and consistency our clients trust.
           </p>
-          <Button to={portfolioPdf} className="w-fit">View Portfolio PDF</Button>
+          <Button onClick={handleOpen} className="w-fit">View Portfolio PDF</Button>
         </div>
-        <div className="mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card dark:border-slate-700 dark:bg-slate-800">
-          <a href={portfolioPdf} target="_blank" rel="noreferrer" className="block">
-            <img
-              src={portfolioThumbnail}
-              alt="Complete portfolio cover"
-              className="w-full object-cover"
-              loading="lazy"
-            />
-          </a>
+        <button
+          type="button"
+          onClick={handleOpen}
+          className="mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-card transition hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent dark:border-slate-700 dark:bg-slate-800"
+        >
+          <img
+            src={portfolioItem.thumbnail}
+            alt="Complete portfolio cover"
+            className="w-full object-cover"
+            loading="lazy"
+          />
           <div className="flex items-center justify-between border-t border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-primary dark:border-slate-700 dark:bg-slate-900 dark:text-white">
             <span>Complete Portfolio</span>
-            <a href={portfolioPdf} target="_blank" rel="noreferrer" className="text-accent hover:underline">
-              Open PDF
-            </a>
+            <span className="text-accent underline">Open</span>
           </div>
-        </div>
+        </button>
       </div>
+      <PdfModal item={portfolioItem} open={open} onClose={() => setOpen(false)} />
     </section>
   );
 };
