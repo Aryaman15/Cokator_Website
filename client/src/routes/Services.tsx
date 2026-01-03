@@ -54,9 +54,6 @@ const Services = () => {
                 <h3 className="text-xl font-semibold text-primary dark:text-white">{active.title}</h3>
                 <p className="mt-2 text-sm text-slate-700 dark:text-slate-200">{active.details}</p>
               </div>
-              <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent">
-                {active.icon.replace('-', ' ')}
-              </span>
             </div>
             <ul className="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300">
               {active.bullets.map((b) => (

@@ -41,9 +41,6 @@ const Domains = () => {
               <p className="text-xs font-semibold uppercase tracking-wide text-accent">Featured Domain</p>
               <h3 className="text-xl font-semibold text-primary dark:text-white">{active.title}</h3>
             </div>
-            <div className="rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
-              {active.examples.join(' · ')}
-            </div>
           </div>
           <p className="text-sm text-slate-700 dark:text-slate-200">{active.description}</p>
           <div className="grid gap-3 md:grid-cols-[1fr,1.2fr]">
