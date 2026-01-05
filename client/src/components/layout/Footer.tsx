@@ -10,9 +10,8 @@ const Footer = () => {
             Reliable partner for book publishing, digital content production, editorial services, and art development for
             global publishers and learning companies.
           </p>
-          <p className="text-sm text-slate-700 dark:text-slate-200">Email: info@cokrator.com</p>
+          <p className="text-sm text-slate-700 dark:text-slate-200">Email: Kuldeep.rawat.ips@gmail.com</p>
           <p className="text-sm text-slate-700 dark:text-slate-200">India: +91-9999343638</p>
-          <p className="text-sm text-slate-700 dark:text-slate-200">US & Canada: +1-647-799-4812</p>
         </div>
         <div className="grid grid-cols-2 gap-4 text-sm text-slate-700 dark:text-slate-200 sm:grid-cols-3">
           <div className="space-y-2">

@@ -29,10 +29,9 @@ const GlobePanel = () => (
     </ul>
     <div className="mt-4 flex flex-col gap-2 rounded-2xl bg-white/10 p-4 text-sm text-white/90">
       <div className="font-semibold">Direct contacts</div>
-      <div className="flex flex-wrap gap-3 text-white/80">
+      <div className="flex flex-col gap-3 mb-1 text-white/80">
         <span>India: +91-9999343638</span>
-        <span>US & Canada: +1-647-799-4812</span>
-        <span>info@cokrator.com</span>
+        <span>Email: Kuldeep.rawat.ips@gmail.com</span>
       </div>
       <Button to="/services" variant="secondary" className="self-start border-white/60 bg-white/10 text-white hover:border-white hover:bg-white/20 hover:text-white">
         Explore capabilities

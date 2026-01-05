@@ -10,7 +10,7 @@ const Contact = () => (
       <GlobePanel />
     </div>
     <div className="rounded-2xl bg-white p-6 text-sm text-slate-700 shadow-card dark:bg-slate-900 dark:text-slate-200">
-      Email: info@cokrator.com · India: +91-9999343638 · US & Canada: +1-647-799-4812
+      Email: Kuldeep.rawat.ips@gmail.com · India: +91-9999343638 
     </div>
   </div>
 );
