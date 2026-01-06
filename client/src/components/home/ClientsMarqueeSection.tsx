@@ -1,55 +1,29 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import cengagelogo from "../../../public/assets/companylogo/cengage.png"
-import nbtindia from "../../../public/assets/companylogo/nbtindia.jpg"
-import spi from "../../../public/assets/companylogo/spi.jpg"
-import macmillan from "../../../public/assets/companylogo/macmillian.png"
+import cengagelogo from '../../../public/assets/companylogo/cengage.png';
+import nbtindia from '../../../public/assets/companylogo/nbtindia.jpg';
+import spi from '../../../public/assets/companylogo/spi.jpg';
+import macmillan from '../../../public/assets/companylogo/macmillian.png';
+
 type Client = {
-  id: 'cengage' | 'nbt' | 'spi' | 'macmillan';
+  id: string;
   name: string;
   shortLabel: string;
-  segment: string;
-  description: string;
-  logoSrc?: string; // NEW: logo for each client
+  logoSrc?: string;
 };
 
 const clients: Client[] = [
-  {
-    id: 'cengage',
-    name: 'Cengage Group',
-    shortLabel: 'Cengage',
-    segment: 'Higher Ed · Global',
-    description:
-      'Cengage Group partners with CoKrator on higher-education and professional titles, especially in STEM and business. Our teams handle complex layouts, figures and digital deliverables aligned with their global quality standards.',
-    logoSrc: cengagelogo, // TODO: replace with your real path
-  },
-  {
-    id: 'nbt',
-    name: 'National Book Trust, India',
-    shortLabel: 'NBT India',
-    segment: 'K–12 & General · India',
-    description:
-      'For NBT India, CoKrator supports school and general-interest titles with clear layouts, multilingual handling and typographic consistency for large print runs.',
-    logoSrc: nbtindia, // or dummy logo
-  },
-  {
-    id: 'spi',
-    name: 'SPI Global',
-    shortLabel: 'SPI',
-    segment: 'Academic & Professional',
-    description:
-      'SPI Global engages CoKrator as a specialist production partner for academic and professional content, where accuracy, schedule discipline and smooth handoffs into their workflows are critical.',
-    logoSrc: spi,
-  },
-  {
-    id: 'macmillan',
-    name: 'Macmillan',
-    shortLabel: 'Macmillan',
-    segment: 'School & Higher-Ed',
-    description:
-      'With Macmillan, CoKrator delivers structured layouts and illustration-heavy titles, ensuring both print-ready files and digital formats meet design and accessibility expectations.',
-    logoSrc: macmillan,
-  },
+  { id: 'cengage', name: 'Cengage Group', shortLabel: 'Cengage', logoSrc: cengagelogo },
+  { id: 'nbt', name: 'National Book Trust, India', shortLabel: 'NBT India', logoSrc: nbtindia },
+  { id: 'spi', name: 'SPI Global', shortLabel: 'SPI', logoSrc: spi },
+  { id: 'macmillan', name: 'Macmillan', shortLabel: 'Macmillan', logoSrc: macmillan },
+  { id: 'mcgrawhill', name: 'McGraw Hill', shortLabel: 'McGraw Hill' },
+  { id: 'oswaal', name: 'Oswaal', shortLabel: 'Oswaal' },
+  { id: 'sna', name: 'Sangeet Natak Academy', shortLabel: 'Sangeet Natak Academy' },
+  { id: 'xseed', name: 'XSEED Education', shortLabel: 'XSEED Education' },
+  { id: 'mps', name: 'MPS', shortLabel: 'MPS' },
+  { id: 'uolo', name: 'UOLO', shortLabel: 'UOLO' },
+  { id: 'mbd', name: 'MBD', shortLabel: 'MBD' },
 ];
 
 const ClientsMarqueeSection = () => {
@@ -110,36 +84,30 @@ const ClientsMarqueeSection = () => {
                       )}
                     </div>
 
-                    <div className="flex flex-col items-start">
-                      <span className="text-sm font-semibold text-slate-800 transition group-hover:text-slate-950 dark:text-slate-100 dark:group-hover:text-white">
-                        {client.shortLabel}
-                      </span>
-                      <span className="text-xs text-slate-500 dark:text-slate-400">
-                        {client.segment}
-                      </span>
-                    </div>
-                  </button>
+                  <div className="flex flex-col items-start">
+                    <span className="text-sm font-semibold text-slate-800 transition group-hover:text-slate-950 dark:text-slate-100 dark:group-hover:text-white">
+                      {client.shortLabel}
+                    </span>
+                  </div>
+                </button>
 
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 0 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 0 }}
-                        transition={{ duration: 0.18 }}
-                        className="pointer-events-none absolute left-1/2 z-10 w-72 max-w-xs -translate-x-1/2 md:bottom-full md:mb-10 md:top-auto md:translate-y-0 top-full mt-3"
-                      >
-                        <div className="rounded-xl border border-slate-200/80 bg-white px-4 py-3 text-left shadow-lg ring-1 ring-slate-100/70 dark:border-slate-700/70 dark:bg-slate-900 dark:ring-slate-800/60">
-                          <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-                            {client.name}
-                          </p>
-                          <p className="mt-1 text-xs leading-relaxed text-slate-700 dark:text-slate-200 md:text-sm">
-                            {client.description}
-                          </p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                <AnimatePresence>
+                  {isActive && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 0 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 0 }}
+                      transition={{ duration: 0.18 }}
+                      className="pointer-events-none absolute left-1/2 z-10 w-56 max-w-xs -translate-x-1/2 md:bottom-full md:mb-10 md:top-auto md:translate-y-0 top-full mt-3"
+                    >
+                      <div className="rounded-xl border border-slate-200/80 bg-white px-4 py-3 text-left shadow-lg ring-1 ring-slate-100/70 dark:border-slate-700/70 dark:bg-slate-900 dark:ring-slate-800/60">
+                        <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                          {client.name}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
                 </div>
               );
             })}

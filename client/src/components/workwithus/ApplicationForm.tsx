@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 import Button from '../shared/Button';
 
 const initialState = {
@@ -28,7 +30,7 @@ const ApplicationForm = () => {
       return;
     }
     try {
-      await axios.post('/api/applications', {
+      await axios.post(`${API_BASE}/api/applications`, {
         ...form,
         roles: typeof form.roles === 'string' ? form.roles.split(',').map((r) => r.trim()) : form.roles,
         tools: form.tools.split(',').map((t) => t.trim()),
